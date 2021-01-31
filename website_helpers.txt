@@ -1,0 +1,3 @@
+HEROPATTERNS    http://www.heropatterns.com/
+FONT-AWESOME    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+GOOGLE-FONTS    https://fonts.googleapis.com/css?family=Comfortaa:normal
