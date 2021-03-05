@@ -30,8 +30,8 @@ a {
 
 
 #container {
-    height: 100vh;
-    display: flex;
+    height: 100%;
+    display: grid;
     justify-content: center;
     align-items: center;
 }
@@ -60,84 +60,70 @@ a {
 }
 
 .box h1 {
-    font-size: 5vmin;
+    font-size: 7.5vmin;
+    padding-inline: 50px;
     text-align: center;
     border-bottom: 2px dashed var(--background_color);
 }
 
 .box p {
     margin-top: 0;
+    padding-inline: 50px;
     text-align: center;
 
-    font-size: 2vmin;
+    font-size: 3vmin;
 }
 
 .box img{
-    width: 30vmin; 
-    border-radius: 2vmin;
+    width: 40vmin; 
+    border-radius: 20px;
 }
 
 .box .small {
-    font-size: 1.8vmin;
+    background-color: #f5f5f577;
+    border-radius: 20px;
+}
+
+.box .small p {
+    font-size: 2.3vmin;
+    margin: 10px;
 }
 
 #social_bar {
     font-size: 3vmin;
     width: fit-content;
-    margin: 1vmin;
-    padding: 2vmin;
-    border: 0.3vmin solid black;
-    border-radius: 2vmin;
-}
-
-#link_bar {
-    font-size: 2vmin;
-    padding: 2vmin;
-    border: 2px solid var(--background_color);
-    border-radius: 2vmin;
-
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23ffee11' fill-opacity='0.42'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-#link_bar p {
-    font-size: 1.6vmin;
-    padding: 0.5vmin;
+    padding: 10px;
+    padding-inline: 15px;
 }
 
 @media only screen and (max-width: 600px){
-    body {
-        background-color: white;
-    }
     .box {
-        background-color: rgba(0,0,0,0.35);
-        width: 95%;
-        height: 95%;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 0;
     }
     .box img {
-        width: 15rem;
-    }
-    .box h1 {
-        font-size: 1.6rem;
-        color: black;
-        background-color: rgb(255 255 255 /50%);
-        padding: 10px;
-        padding-inline: 20px;
-        border: none;
+        width: 60%;
         border-radius: 10px;
     }
-    .box p {
-        font-size: 1rem;
-        padding-inline: 20px;
-        color: white;
+    .box h1 {
+        font-size: 2.8rem;
+        border-top: 2px dashed var(--background_color);
+        padding: 10px;
+        padding-inline: 50px;
+        margin: 20px;
     }
-    .box .small {
+    .box p {
+        font-size: 1.2rem;
+        padding-inline: 50px;
+    }
+    .box .small p{
         font-size: 0.8rem;
         color: black;
-        margin: 4px;
     }
     #social_bar {
         font-size: 1.2rem;
         width: 60vmin;
-        background-color: rgba(255, 255, 255, 0.8);
     }
 }
