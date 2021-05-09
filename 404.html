@@ -5,72 +5,33 @@
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Comfortaa:normal">
         <link rel="stylesheet" 
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <script type="module" src="https://unpkg.com/wired-card?module"></script>
+        <link rel="shortcut icon"
+            href="favicon.ico"
+            type="image/x-icon" />
         <link rel="stylesheet" href="styles.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     </head>
 
     <style>
-        body { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23FFFFFF' fill-opacity='0.2' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        @media screen and (max-aspect-ratio: 16/9){
-            img{
-                display: none;
-                visibility: hidden;
-            }
-        }
-    </style>
-
-    <style>
         body { 
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23FFFFFF' fill-opacity='0.2' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             --background_color: rgb(182, 26, 26);
         }
-
-        #box {
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-        #box img {
-            width:50vmin;
-            transition-duration: 0.2s;
-        }
-
-        #box img:hover {
-            width:42vmin;
-        }
-
-        #box a {
-            margin: 4vmin;
-            padding: 2vmin;
-            padding-inline: 2vmin;
-            font-family: "Comfortaa";
-            font-size: 2vmin;
-            border: 2px solid var(--background_color);
-            border-radius: 2vmin;
-            background-color: white;
-
-            transition-duration: 0.2s;
-        }
-
-        #box a:hover {
-            border: 2px solid none;
-            background-color: var(--background_color);
-            color: white;
-
-        }
-
     </style>
 
     <body>
         <div id="container">
-            <div id="box">
-                <div>
-                <h1>PAGE NOT AVAILABLE !</h1>
-                <p>Error: 404 - Page Not Found On Server</p>
-                <p style="margin: 5vmin;"><a href="https://en.wikipedia.org/wiki/HTTP_404">Learn More</a><p>
-                </div>
+            <div class="box">
+                <h1>Page Not Found!</h1>
                 <img src="images/404.png"/>
-                <a href="./index.html">Go To Home</a>
+                <br />
+                <wired-card elevation="2" id="social_bar">
+                    <ul>
+                        <li><a href="./index.html" >Back To Home</a></li>
+                    </ul>
+                </wired-card>
             </div>
         </div>
     </body>
