@@ -1,6 +1,11 @@
+import AppListing from '../components/AppListing/AppListing'
+import styles from './homepage.module.scss'
+
 const App = () => {
   return (
-    <div>yashchaudhari008.github.io</div>
+    <div className={styles.app}>
+      <AppListing />
+    </div>
   )
 }
 

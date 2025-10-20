@@ -1,6 +1,18 @@
-html {
+@use "./styles/variables.scss" as sVar;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
     height: 100dvh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: sVar.$primary-color;
+    color: white;
+    font-family: "inter", sans-serif;
+}
+h1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: "Poppins", sans-serif;
 }
