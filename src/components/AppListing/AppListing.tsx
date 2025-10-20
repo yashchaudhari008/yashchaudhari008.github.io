@@ -1,24 +1,51 @@
+import { useEffect, useState } from "react";
 import styles from "./appListing.module.scss";
+import axios from "axios";
+import { FaGithub, FaLink } from "react-icons/fa6";
 
-const appList = [];
+type AppDetails = {
+    id: number;
+    name: string;
+    description: string;
+    archived: boolean;
+    html_url: string;
+    homepage: string;
+}
+type AppDetails_List = AppDetails[];
 
 const AppListing = () => {
+    const [appList, setAppList] = useState<AppDetails[]>([]);
+
+    useEffect(() => {
+        axios.get<AppDetails_List>("https://api.github.com/users/yashchaudhari008/repos").then(
+            response => {
+                const data: AppDetails_List = response.data.filter((app: AppDetails) => !app.name.startsWith("yashchaudhari008")).sort(repo =>
+                    repo.archived ? 1 : -1
+                )
+                setAppList(data);
+            }
+        ).catch(
+            error => console.error("Failed to fetch repository data", error)
+        )
+    }, []);
+
     return (
         <div className={styles.appListing}>
             <div className={styles.cardHolder}>
-                {appList.filter(entry => !entry.archived).map((entry) => {
+                {appList.map((entry) => {
                     return <div key={entry.id} id={entry.name} className={styles.card}>
-                        <h1>{entry.name}</h1>
-                        <p>{entry.description}</p>
-                    </div>
-                })}
-
-            </div>
-            <div className={styles.break}></div>
-            <div className={styles.cardHolder}>
-                {appList.filter(entry => entry.archived).map((entry) => {
-                    return <div key={entry.id} id={entry.name} className={styles.card}>
-                        <h1>{entry.name}</h1>
+                        <div className={styles.cardHeader}>
+                            <h1 title={entry.name}>{entry.name}</h1>
+                            <div className={styles.cardHeaderIconHolder}>
+                                {/* TODO: Use anchor tags */}
+                                <FaGithub className={styles.cardHeaderIcon} title="Github" onClick={() =>
+                                    window.open(entry.html_url, "_blank", "noopener noreferrer")
+                                } />
+                                <FaLink className={styles.cardHeaderIcon} title="Website" onClick={() =>
+                                    window.open(entry.homepage, "_blank", "noopener noreferrer")
+                                } />
+                            </div>
+                        </div>
                         <p>{entry.description}</p>
                     </div>
                 })}

@@ -4,20 +4,32 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    .break {
-        height: 12px;
-        background-color: white;
-        opacity: 10%;
-        border-radius: 30px;
-        margin-inline: 12px;
-    }
 }
 .cardHolder {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
+    .cardHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 4px;
+        .cardHeaderIconHolder {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+
+            .cardHeaderIcon {
+                flex-shrink: 0;
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+            }
+        }
+    }
     .card {
         min-width: 250px;
+        max-width: 400px;
         min-height: 120px;
         display: flex;
         flex-direction: column;
