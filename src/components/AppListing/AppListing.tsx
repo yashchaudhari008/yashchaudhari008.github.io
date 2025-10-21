@@ -58,7 +58,9 @@ const AppListing = () => {
                                 <p>{entry.stargazers_count}</p>
                             </div>
                         </div>
-                        <p>{entry.description}</p>
+                        {entry.description && <div className={styles.cardDescription}>
+                            <p>{entry.description}</p>
+                        </div>}
                     </div>
                 })}
             </div>
