@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./appListing.module.scss";
 import axios from "axios";
-import { FaCode, FaCodeFork, FaGithub, FaLink, FaStar } from "react-icons/fa6";
+import { FaCode, FaCodeFork, FaGithub, FaStar, FaUpRightFromSquare } from "react-icons/fa6";
 
 type AppDetails = {
     id: number;
@@ -61,13 +61,12 @@ const AppListing = () => {
                         <div className={styles.cardHeader}>
                             <h1 title={entry.name}>{entry.name}</h1>
                             <div className={styles.cardHeaderIconHolder}>
-                                {/* TODO: Use anchor tags */}
-                                <FaGithub className={styles.cardHeaderIcon} title="Github" onClick={() =>
-                                    window.open(entry.html_url, "_blank", "noopener noreferrer")
-                                } />
-                                <FaLink className={styles.cardHeaderIcon} title="Website" onClick={() =>
-                                    window.open(entry.homepage, "_blank", "noopener noreferrer")
-                                } />
+                                <a href={entry.html_url} target="_blank" rel="noopener noreferrer">
+                                    <FaGithub className={styles.cardHeaderIcon} title="Github Page" />
+                                </a>
+                                {entry.homepage && <a href={entry.homepage} target="_blank" rel="noopener noreferrer">
+                                    <FaUpRightFromSquare className={styles.cardHeaderIcon} title="App Link" />
+                                </a>}
                             </div>
                         </div>
                         <div className={styles.cardStats}>

@@ -18,13 +18,14 @@
         .cardHeaderIconHolder {
             display: flex;
             gap: 8px;
-            flex-shrink: 0;
+
+            a {
+                color: inherit;
+            }
 
             .cardHeaderIcon {
-                flex-shrink: 0;
                 width: 24px;
                 height: 24px;
-                cursor: pointer;
             }
         }
     }
@@ -74,12 +75,6 @@
         color: black;
         flex:1;
         border: 12px solid black;
-        h1::before {
-            content: "> ";
-            font-size: 24px;
-            color: sVar.$primary-color;
-            filter: grayscale(1);
-        }
         .cardDescription {
             margin-top: 12px;
         }
