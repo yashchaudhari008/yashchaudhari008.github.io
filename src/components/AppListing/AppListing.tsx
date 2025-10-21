@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./appListing.module.scss";
 import axios from "axios";
-import { FaGithub, FaLink } from "react-icons/fa6";
+import { FaCodeFork, FaGithub, FaLink, FaStar } from "react-icons/fa6";
 
 type AppDetails = {
     id: number;
@@ -10,6 +10,8 @@ type AppDetails = {
     archived: boolean;
     html_url: string;
     homepage: string;
+    forks: number;
+    stargazers_count: number;
 }
 type AppDetails_List = AppDetails[];
 
@@ -44,6 +46,16 @@ const AppListing = () => {
                                 <FaLink className={styles.cardHeaderIcon} title="Website" onClick={() =>
                                     window.open(entry.homepage, "_blank", "noopener noreferrer")
                                 } />
+                            </div>
+                        </div>
+                        <div className={styles.cardStats}>
+                            <div className={styles.cardStat}>
+                                <FaCodeFork className={styles.cardStatIcon} />
+                                <p>{entry.forks}</p>
+                            </div>
+                            <div className={styles.cardStat}>
+                                <FaStar className={styles.cardStatIcon} />
+                                <p>{entry.stargazers_count}</p>
                             </div>
                         </div>
                         <p>{entry.description}</p>
