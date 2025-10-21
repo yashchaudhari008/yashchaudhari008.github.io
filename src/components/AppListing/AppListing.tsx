@@ -35,8 +35,6 @@ const AppListing = () => {
                             const repo2Total = (repo2.forks || 0) + (repo2.stargazers_count || 0);
                             if (repo2Total !== repo1Total) return repo2Total - repo1Total;
 
-                            // optional tie-breaker: most recently updated first
-                            if (repo1.updated_at && repo2.updated_at) return new Date(repo2.updated_at) - new Date(repo1.updated_at);
                             return 0;
                         }
                     )
