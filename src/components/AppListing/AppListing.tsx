@@ -21,9 +21,24 @@ const AppListing = () => {
     useEffect(() => {
         axios.get<AppDetails_List>("https://api.github.com/users/yashchaudhari008/repos").then(
             response => {
-                const data: AppDetails_List = response.data.filter((app: AppDetails) => !app.name.startsWith("yashchaudhari008")).sort(repo =>
-                    repo.archived ? 1 : -1
-                )
+                const data: AppDetails_List = response.data.filter((app: AppDetails) => !app.name.startsWith("yashchaudhari008"))
+                    .sort(
+                        (repo1, repo2) => {
+                            // archived last: treat archived true as 1, false as 0
+                            const repo1Archived = repo1.archived ? 1 : 0;
+                            const repo2Archived = repo2.archived ? 1 : 0;
+                            if (repo1Archived !== repo2Archived) return repo1Archived - repo2Archived; // non-archived (0) before archived (1)
+
+                            // within each group sort by total = forks + stars (descending)
+                            const repo1Total = (repo1.forks || 0) + (repo1.stargazers_count || 0);
+                            const repo2Total = (repo2.forks || 0) + (repo2.stargazers_count || 0);
+                            if (repo2Total !== repo1Total) return repo2Total - repo1Total;
+
+                            // optional tie-breaker: most recently updated first
+                            if (repo1.updated_at && repo2.updated_at) return new Date(repo2.updated_at) - new Date(repo1.updated_at);
+                            return 0;
+                        }
+                    )
                 setAppList(data);
             }
         ).catch(
