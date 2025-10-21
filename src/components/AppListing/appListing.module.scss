@@ -8,7 +8,7 @@
 .cardHolder {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 18px;
     .cardHeader {
         display: flex;
         justify-content: space-between;
@@ -33,7 +33,7 @@
         min-height: 120px;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 4px;
         padding: 24px;
         border-radius: 32px;
         background-color: sVar.$secondary-color;
