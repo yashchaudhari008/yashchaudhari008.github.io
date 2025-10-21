@@ -65,7 +65,7 @@ const AppListing = () => {
                         </div>
                         <div className={styles.cardStats}>
                             {entry.archived && <div className={styles.cardStat}>
-                                <p>ARCHIVED</p>
+                                <p>Archived</p>
                             </div>}
                             <div className={styles.cardStat}>
                                 <FaCodeFork className={styles.cardStatIcon} />
