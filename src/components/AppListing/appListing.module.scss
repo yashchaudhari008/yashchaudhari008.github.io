@@ -50,6 +50,19 @@
                 height: 14px;
             }
         }
+        .cardStatV1 {
+            background-color: sVar.$primary-color;
+            filter: grayscale(1);
+            
+            padding: 4px 16px;
+            border-radius: 16px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            
+            font-size: 14px;
+            font-weight: 600;
+        }
     }
     .card {
         min-width: 250px;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./appListing.module.scss";
 import axios from "axios";
-import { FaCodeFork, FaGithub, FaLink, FaStar } from "react-icons/fa6";
+import { FaCode, FaCodeFork, FaGithub, FaLink, FaStar } from "react-icons/fa6";
 
 type AppDetails = {
     id: number;
@@ -12,6 +12,7 @@ type AppDetails = {
     homepage: string;
     forks: number;
     stargazers_count: number;
+    language: string;
 }
 type AppDetails_List = AppDetails[];
 
@@ -51,6 +52,12 @@ const AppListing = () => {
             <div className={styles.cardHolder}>
                 {appList.map((entry) => {
                     return <div key={entry.id} id={entry.name} className={styles.card}>
+                        <div className={styles.cardStats}>
+                            <div className={styles.cardStatV1}>
+                                <FaCode className={styles.cardStatIcon} />
+                                <p>{entry.language}</p>
+                            </div>
+                        </div>
                         <div className={styles.cardHeader}>
                             <h1 title={entry.name}>{entry.name}</h1>
                             <div className={styles.cardHeaderIconHolder}>
